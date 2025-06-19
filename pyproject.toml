@@ -1,0 +1,29 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "himig"
+version = "1.0.2"
+description = "A simple music synthesis and playback tool."
+readme = "README.md"
+authors = [{ name = "j-ncel" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["music", "audio", "synthesis", "melody", "Python"]
+dependencies = ["numpy"]
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+include = ["himig"]
+exclude = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/j-ncel/himig"
+Repository = "https://github.com/j-ncel/himig"
