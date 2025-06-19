@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "himig"
-version = "1.0.2"
-description = "A simple music synthesis and playback tool."
+version = "1.0.1"
+description = "Bring melodies to life with pure Python. Input note strings, hear real sound."
 readme = "README.md"
 authors = [{ name = "j-ncel" }]
 classifiers = [
