@@ -23,6 +23,8 @@
 
 ## Demo
 
+👉 [**Himig Playground on Streamlit Cloud**](https://himig-playground.streamlit.app/) 👈
+
 ![Demo preview](playground/demo.gif)
 
 ## Installation
