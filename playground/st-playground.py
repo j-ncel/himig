@@ -4,6 +4,9 @@ import himig
 import re
 import ast
 
+st.set_page_config(page_title="Himig Playground", page_icon="🎵")
+
+
 st.title(" 🎵:green[Himig] Playground")
 st.write(
     ":green[Python music synthesis module that lets you compose, play, and save melodies.]")
