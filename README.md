@@ -23,7 +23,7 @@
 
 ## Demo
 
-<video src="playground/sample-video.mp4" controls width="480"></video>
+![Demo preview](playground/demo.gif)
 
 ## Installation
 
