@@ -22,7 +22,7 @@ license-files = ["LICENSE"]
 
 [tool.setuptools.packages.find]
 include = ["himig"]
-exclude = ["tests", "playground"]
+exclude = ["tests"]
 
 [project.urls]
 Homepage = "https://github.com/j-ncel/himig"

@@ -158,7 +158,9 @@ himig/
 │   ├── audio_player.py
 │   ├── constants.py
 │   └── melodies.py
-│
+├── playground/
+│   ├── st=playground.py
+│   └── sample-video.mp4
 ├── tests/
 │   └── test_himig.py
 ├── README.md
