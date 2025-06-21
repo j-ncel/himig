@@ -4,9 +4,9 @@
 
 ---
 
-# himig
+# Himig
 
-**himig** is a simple, pure-Python music synthesis and playback package. It lets you generate, play, and save melodies as WAV files using a human-friendly note and duration format. It’s perfect for educational projects, demos, and creative coding.
+**himig** is a python music synthesis module that lets you compose, play, and save melodies.
 
 ---
 
@@ -20,6 +20,10 @@
 - 🪶 **Lightweight**: Only depends on [numpy](https://numpy.org/)
 
 ---
+
+## Demo
+
+<video src="playground/sample-video.mp4" controls width="480"></video>
 
 ## Installation
 
