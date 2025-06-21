@@ -67,3 +67,8 @@ if st.button("Generate", disabled=not st.session_state.melody):
 if st.button("Clear Melody", disabled=not st.session_state.melody):
     melody.clear()
     st.rerun()
+st.divider()
+st.markdown("""
+    <a href="https://coff.ee/jncel" target="_blank">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="170">
+    </a>""", unsafe_allow_html=True)
