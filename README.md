@@ -10,14 +10,12 @@
 
 ---
 
-## Features
-
-- 🎵 **Compose melodies** using note names and durations (e.g., `"C4:0.5"`)
-- 🔊 **Play** melodies directly on your system’s audio output
-- 💾 **Save** melodies as standard WAV files
-- 🧑‍💻 **Generate in-memory WAV bytes** for web apps (e.g., Streamlit)
-- 🎼 **Sample built-in melodies**: Happy Birthday, Twinkle Twinkle.
-- 🪶 **Lightweight**: Only depends on [numpy](https://numpy.org/)
+- **Compose melodies** using note names and durations (e.g., `"C4:0.5"`).
+- **Play** melodies directly on your system’s audio output.
+- **Save** melodies as WAV file.
+- **Generate in-memory WAV bytes** for web apps (e.g., Streamlit).
+- **Sample built-in melodies**: Happy Birthday, Twinkle Twinkle.
+- **Lightweight**: Only depends on [numpy](https://numpy.org/).
 
 ---
 
@@ -41,8 +39,6 @@ cd himig
 ```
 
 ---
-
-## Quick Start
 
 ### Play a Melody
 
@@ -71,7 +67,7 @@ play(happy_birthday)
 play(twinkle_twinkle)
 ```
 
-### Use in Streamlit or Web Apps
+### Use in Streamlit
 
 ```python
 import streamlit as st
@@ -107,48 +103,6 @@ You can contribute more melodies to the project, it is welcome!
 
 ---
 
-## API Reference
-
-### `play(melody, sample_rate=44100, amplitude=32767)`
-
-Play a melody through your system’s audio output.
-
-- `melody`: List of note-duration strings
-- `sample_rate`: Audio sample rate (Hz)
-- `amplitude`: Peak amplitude
-
----
-
-### `save(melody, filename, sample_rate=44100, amplitude=32767)`
-
-Save a melody as a WAV file.
-
-- `melody`: List of note-duration strings
-- `filename`: Output WAV file path
-
----
-
-### `generate_wav_bytes(melody, sample_rate=44100, amplitude=32767)`
-
-Generate a WAV file as an in-memory bytes buffer (for web apps).
-
-- Returns: `io.BytesIO` object
-
----
-
-## Adding Your Own Melodies
-
-Just create a list of note-duration strings:
-
-```python
-my_song = [
-    "C4:0.5", "D4:0.5", "E4:1.0", "R:0.25", "E4:0.5", "D4:0.5", "C4:1.0"
-]
-play(my_song)
-```
-
----
-
 ## Project Structure
 
 ```
@@ -156,17 +110,18 @@ himig/
 │
 ├── himig/
 │   ├── __init__.py
-│   ├── core.py
-│   ├── audio_player.py
+│   ├── _core.py
+│   ├── _audio_player.py
 │   ├── constants.py
 │   └── melodies.py
 ├── playground/
-│   ├── st=playground.py
-│   └── sample-video.mp4
+│   ├── st-playground.py
+│   └── demo.gif
 ├── tests/
 │   └── test_himig.py
 ├── README.md
 ├── pyproject.toml
+├── requirements.txt
 └── LICENSE
 ```
 

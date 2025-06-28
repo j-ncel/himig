@@ -1,8 +1,8 @@
 """
-himig: Simple music synthesis and playback package.
+himig is a python music synthesis module that lets you compose, play, and save melodies.
 """
 
-from .core import play, save, generate_wav_bytes
+from ._core import play, save, generate_wav_bytes
 from .melodies import happy_birthday, twinkle_twinkle
 
 __all__ = [
