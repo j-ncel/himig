@@ -4,6 +4,11 @@
 
 ---
 
+![Test Himig on macOS, Linux, and Windows](https://github.com/j-ncel/himig/actions/workflows/test.yml/badge.svg)
+![PyPI](https://img.shields.io/pypi/v/himig)
+![Python](https://img.shields.io/pypi/pyversions/himig)
+![License](https://img.shields.io/github/license/j-ncel/himig)
+
 # Himig
 
 **himig** is a Python music synthesis module that lets you compose, play, and save melodies.
