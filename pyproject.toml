@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "himig"
-version = "1.0.1"
-description = "Bring melodies to life with pure Python. Input note strings, hear real sound."
+version = "1.0.2"
+description = "Python music synthesis module that lets you compose, play, and save melodies"
 readme = "README.md"
 authors = [{ name = "j-ncel" }]
 classifiers = [
@@ -22,7 +22,7 @@ license-files = ["LICENSE"]
 
 [tool.setuptools.packages.find]
 include = ["himig"]
-exclude = ["tests"]
+exclude = ["tests","playground"]
 
 [project.urls]
 Homepage = "https://github.com/j-ncel/himig"

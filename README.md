@@ -6,13 +6,13 @@
 
 # Himig
 
-**himig** is a python music synthesis module that lets you compose, play, and save melodies.
+**himig** is a Python music synthesis module that lets you compose, play, and save melodies.
 
 ---
 
 - **Compose melodies** using note names and durations (e.g., `"C4:0.5"`).
 - **Play** melodies directly on your system’s audio output.
-- **Save** melodies as WAV file.
+- **Save** melodies as WAV files.
 - **Generate in-memory WAV bytes** for web apps (e.g., Streamlit).
 - **Sample built-in melodies**: Happy Birthday, Twinkle Twinkle.
 - **Lightweight**: Only depends on [numpy](https://numpy.org/).
@@ -23,7 +23,9 @@
 
 👉 [**Himig Playground on Streamlit Cloud**](https://himig-playground.streamlit.app/) 👈
 
-![Demo preview](playground/demo.gif)
+[![Demo preview](https://github.com/j-ncel/himig/raw/main/playground/demo.gif)](https://himig-playground.streamlit.app/)
+
+---
 
 ## Installation
 
@@ -36,9 +38,12 @@ Or, for development:
 ```sh
 git clone https://github.com/j-ncel/himig.git
 cd himig
+pip install -e .
 ```
 
 ---
+
+## Usage
 
 ### Play a Melody
 
@@ -99,7 +104,7 @@ You can import them directly:
 from himig import happy_birthday, twinkle_twinkle
 ```
 
-You can contribute more melodies to the project, it is welcome!
+You can contribute more melodies to the project—contributions are welcome!
 
 ---
 
@@ -131,3 +136,5 @@ himig/
 
 - [GitHub Repository](https://github.com/j-ncel/himig)
 - [PyPI Package](https://pypi.org/project/himig/)
+
+---
