@@ -1,9 +1,3 @@
-<a href="https://coff.ee/jncel">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="100" height="" alt="Buy Me a Coffee">
-</a>
-
----
-
 ![Test Himig on macOS, Linux, and Windows](https://github.com/j-ncel/himig/actions/workflows/test.yml/badge.svg)
 ![PyPI](https://img.shields.io/pypi/v/himig)
 ![Python](https://img.shields.io/pypi/pyversions/himig)
@@ -26,7 +20,7 @@
 
 ## Demo
 
-👉 [**Himig Playground on Streamlit Cloud**](https://himig-playground.streamlit.app/) 👈
+[**Himig Playground on Streamlit Cloud**](https://himig-playground.streamlit.app/) 🎶
 
 [![Demo preview](https://github.com/j-ncel/himig/raw/main/playground/demo.gif)](https://himig-playground.streamlit.app/)
 
@@ -141,5 +135,9 @@ himig/
 
 - [GitHub Repository](https://github.com/j-ncel/himig)
 - [PyPI Package](https://pypi.org/project/himig/)
+
+<a href="https://coff.ee/jncel">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="100" height="" alt="Buy Me a Coffee">
+</a>
 
 ---
