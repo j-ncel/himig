@@ -3,6 +3,8 @@ import streamlit as st
 import himig
 import re
 import ast
+import himig.melodies as melodies
+
 
 st.set_page_config(page_title="Himig Playground", page_icon="🎵")
 
@@ -41,6 +43,22 @@ with st.form("notes_form", border=False, enter_to_submit=False):
                     note, octave, duration = match.groups()
                     melody.append(
                         f"{note}{int(octave)}:{round(float(duration), 2)}")
+st.subheader("Sample Melodies")
+
+sample_melodies = {
+    "Happy Birthday": melodies.happy_birthday,
+    "Twinkle Twinkle": melodies.twinkle_twinkle,
+    "Ode to Joy": melodies.ode_to_joy,
+    "Für Elise": melodies.fur_elise,
+}
+
+col1, col2 = st.columns(2)
+selected_sample = col1.selectbox(
+    "Choose a sample melody", list(sample_melodies.keys()), label_visibility="collapsed")
+
+if col2.button(" Add to Melody"):
+    melody.extend(sample_melodies[selected_sample])
+    st.rerun()
 
 st.subheader("Current Melody")
 if melody:
@@ -67,8 +85,10 @@ if st.button("Generate", disabled=not st.session_state.melody):
 if st.button("Clear Melody", disabled=not st.session_state.melody):
     melody.clear()
     st.rerun()
+
 st.divider()
+
 st.markdown("""
     <a href="https://coff.ee/jncel" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="170">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="100">
     </a>""", unsafe_allow_html=True)
