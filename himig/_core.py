@@ -12,7 +12,7 @@ from .constants import BASE_FREQUENCIES
 def get_frequency(note_name):
     """Return frequency for note string like 'C4', 'C#5', etc."""
     try:
-        if note_name.upper() == "R":  # Support rest note
+        if note_name.upper() == "R":
             return 0.0
         for idx, char in enumerate(note_name):
             if char.isdigit():
@@ -27,14 +27,23 @@ def get_frequency(note_name):
         raise ValueError(f"Invalid note format '{note_name}': {e}")
 
 
-def apply_fade(waveform, sample_rate):
-    """Apply 10ms fade in/out to avoid clicks."""
-    fade_length = int(0.01 * sample_rate)
-    if len(waveform) < 2 * fade_length:
-        return waveform  # Too short to fade
-    envelope = np.ones_like(waveform)
-    envelope[:fade_length] = np.linspace(0, 1, fade_length)
-    envelope[-fade_length:] = np.linspace(1, 0, fade_length)
+def apply_adsr_envelop(waveform, sample_rate):
+    """Apply a piano-style ADSR (Attack, Decay, Sustain, Release) envelope to a waveform."""
+    attack = int(0.01 * sample_rate)
+    decay = int(0.1 * sample_rate)
+    sustain_level = 0.7
+    release = int(0.2 * sample_rate)
+    total = len(waveform)
+
+    envelope = np.ones(total)
+    if total < attack + decay + release:
+        return waveform
+
+    envelope[:attack] = np.linspace(0, 1, attack)
+    envelope[attack:attack+decay] = np.linspace(1, sustain_level, decay)
+    envelope[attack+decay:total-release] = sustain_level
+    envelope[total-release:] = np.linspace(sustain_level, 0, release)
+
     return waveform * envelope
 
 
@@ -47,13 +56,20 @@ def synthesize_waveform(note_names, durations, sample_rate=44100, amplitude=3276
         except ValueError as e:
             print(f"Warning: {e}. Skipping note.")
             continue
+        t = np.linspace(0, duration, int(
+            sample_rate * duration), endpoint=False)
         if freq == 0.0:
-            waveforms.append(np.zeros(int(sample_rate * duration)))
+            waveform = np.zeros_like(t)
         else:
-            t = np.linspace(0, duration, int(
-                sample_rate * duration), endpoint=False)
-            waveform = np.sin(2 * np.pi * freq * t)
-            waveforms.append(apply_fade(waveform, sample_rate))
+            waveform = (
+                1.0 * np.sin(2 * np.pi * freq * t) +
+                0.5 * np.sin(2 * np.pi * 2 * freq * t) +
+                0.25 * np.sin(2 * np.pi * 3 * freq * t)
+            )
+            waveform *= np.exp(-3 * t)
+            waveform = apply_adsr_envelop(waveform, sample_rate)
+            waveform /= np.max(np.abs(waveform)) + 1e-6
+        waveforms.append(waveform)
     if not waveforms:
         raise ValueError("No valid notes to synthesize.")
     return (np.concatenate(waveforms) * amplitude).astype(np.int16)
@@ -65,7 +81,7 @@ def parse_note_and_duration(note_duration_str):
         if ':' in note_duration_str:
             note, duration = note_duration_str.split(':')
             return note, float(duration)
-        return note_duration_str, 1.0  # default duration
+        return note_duration_str, 1.0
     except Exception as e:
         raise ValueError(
             f"Invalid note-duration string '{note_duration_str}': {e}")
@@ -75,7 +91,7 @@ def parse_melody(melody):
     """Convert a melody list into separate note and duration lists."""
     try:
         notes, durations = zip(*(parse_note_and_duration(item)
-                               for item in melody))
+                                 for item in melody))
         return notes, durations
     except Exception as e:
         raise ValueError(f"Error parsing melody: {e}")
