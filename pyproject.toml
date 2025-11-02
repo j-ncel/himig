@@ -6,10 +6,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "himig"
-version = "1.0.2"
+version = "1.0.3"
 description = "Python music synthesis module that lets you compose, play, and save melodies"
 readme = "README.md"
 authors = [{ name = "j-ncel" }]
+license = { file = "LICENSE" }
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
